@@ -1,0 +1,122 @@
+/* General styling for the menu */
+.menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ddd; /* Light border for separation */
+  border-radius: 8px; /* Rounded corners */
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Menu items */
+.menu-item {
+  position: relative;
+}
+
+.menu-item > a {
+  display: block;
+  padding: 12px 20px;
+  color: #333; /* Dark text color */
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+/* Hover and active state for menu items */
+.menu-item > a:hover,
+.menu-item--active-trail > a {
+  background-color: #007bff; /* Primary color */
+  color: #ffffff; /* White text */
+  border-radius: 4px;
+}
+
+/* Submenu styling */
+.menu ul {
+  display: none; /* Hidden by default */
+  position: absolute;
+  top: 100%;
+  left: 0;
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+  background-color: #ffffff; /* White background */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu-item--expanded > ul {
+  display: block; /* Show on hover or expand */
+}
+
+.menu ul .menu-item > a {
+  padding: 8px 16px;
+  font-size: 14px;
+  color: #555;
+}
+
+.menu ul .menu-item > a:hover {
+  background-color: #f8f9fa; /* Subtle hover background */
+  color: #007bff; /* Primary color for hover */
+}
+
+/* Responsive design for mobile */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column; /* Stack menu items */
+    align-items: stretch;
+  }
+
+  .menu-item > a {
+    padding: 16px;
+    text-align: center;
+  }
+
+  /* Dropdown behavior for mobile */
+  .menu ul {
+    position: static;
+    width: 100%;
+    border: none;
+    box-shadow: none;
+  }
+
+  .menu ul .menu-item > a {
+    text-align: left;
+    padding-left: 32px; /* Indent submenu items */
+  }
+}
+
+/* Add a toggle button for mobile menus */
+.menu-toggle {
+  display: none;
+  padding: 12px 16px;
+  background-color: #007bff;
+  color: #ffffff;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+  }
+
+  .menu.open {
+    display: flex;
+  }
+}

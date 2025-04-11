@@ -1,0 +1,91 @@
+{#
+/**
+ * @file
+ * Theme override to display a block.
+ *
+ * Available variables:
+ * - plugin_id: The ID of the block implementation.
+ * - label: The configured label of the block if visible.
+ * - configuration: A list of the block's configuration values.
+ *   - label: The configured label for the block.
+ *   - label_display: The display settings for the label.
+ *   - provider: The module or other provider that provided this block plugin.
+ *   - Block plugin specific settings will also be stored here.
+ * - in_preview: Whether the plugin is being rendered in preview mode.
+ * - content: The content of this block.
+ * - attributes: array of HTML attributes populated by modules, intended to
+ *   be added to the main container tag of this template.
+ *   - id: A valid HTML ID and guaranteed unique.
+ * - title_attributes: Same as attributes, except applied to the main title
+ *   tag that appears in the template.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the main title tag that appears in the template.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the main title tag that appears in the template.
+ *
+ * @see template_preprocess_block()
+ */
+#}
+{%
+  set classes = [
+    'block',
+    'block-' ~ configuration.provider|clean_class,
+    'block-' ~ plugin_id|clean_class,
+  ]
+%}
+<div{{ attributes.addClass(classes) }}>
+  {{ title_prefix }}
+  {% if label %}
+    <h2{{ title_attributes }}>{{ label }}</h2>
+  {% endif %}
+  {{ title_suffix }}
+{#   <!-- Header Start -->#}
+{#        <div class="container-fluid header bg-white p-0">#}
+{#            <div class="row g-0 align-items-center flex-column-reverse flex-md-row">#}
+{#                <div class="col-md-6 p-5 mt-lg-5">#}
+{#                    <h1 class="display-5 animated fadeIn mb-4">Find A <span class="text-primary">Perfect Home</span> To#}
+{#                        Live With Your Family</h1>#}
+{#                    <p class="animated fadeIn mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor at sed stet#}
+{#                        sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.</p>#}
+{#                    <a href="" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">Get Started</a>#}
+{#                </div>#}
+{#                <div class="col-md-6 animated fadeIn">#}
+{#                    <div class="owl-carousel header-carousel">#}
+{#                        <div class="owl-carousel-item">#}
+{#                            <img class="img-fluid" src="img/carousel-1.jpg" alt="">#}
+{#                        </div>#}
+{#                        <div class="owl-carousel-item">#}
+{#                            <img class="img-fluid" src="img/carousel-2.jpg" alt="">#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div>#}
+{#        <!-- Header End -->#}
+        <!-- Header Start -->
+  {% block content %}
+
+    <div class="container-fluid header bg-white p-0 pt-lg-5">
+        <div class="row g-0 align-items-center flex-column-reverse flex-md-row">
+            <div class="col-md-6 p-5 mt-lg-5">
+                <h1 class="display-5 animated fadeIn mb-4">{% block header_title %}Find A <span class="text-primary">Perfect Home</span> To Live With Your Family{% endblock %}</h1>
+                <p class="animated fadeIn mb-4 pb-2">{% block header_description %}Vero elitr justo clita lorem. Ipsum dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea elitr.{% endblock %}</p>
+                <a href="{% block cta_link %}{% endblock %}" class="btn btn-primary py-3 px-5 me-3 animated fadeIn">{% block cta_text %}Get Started{% endblock %}</a>
+            </div>
+            <div class="col-md-6 animated fadeIn">
+                <div class="owl-carousel header-carousel">
+                    {% block carousel_items %}
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="{{ directory }}/images/carousel-1.jpg" alt="h1">
+                    </div>
+                    <div class="owl-carousel-item">
+                        <img class="img-fluid" src="{{ directory }}/images/carousel-2.jpg" alt="h2">
+                    </div>
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+  {% endblock %}
+    <!-- Header End -->
+</div>

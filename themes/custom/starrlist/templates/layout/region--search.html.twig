@@ -1,0 +1,49 @@
+
+{#{% if content %}#}
+{#  <!-- Search Region Start -->#}
+{#  <div class="container-fluid bg-primary mb-5 wow fadeIn" data-wow-delay="0.1s" style="padding: 35px;">#}
+{#    <div class="container">#}
+{#      <form action="/business-listings" method="get" class="business-listing-search-form">#}
+{#        <div class="row g-2">#}
+{#          <div class="col-md-10">#}
+{#            <div class="row g-2">#}
+{#              <div class="col-md-4">#}
+{#                <input type="text" name="keyword" class="form-control border-0 py-3" placeholder="Search Keyword">#}
+{#              </div>#}
+{#              <div class="col-md-4">#}
+{#                <select name="category" class="form-select border-0 py-3">#}
+{#                  <option value="">Business Category</option>#}
+{#                  {% for term in taxonomy_term_load_multiple_by_name(null, 'field_category') %}#}
+{#                    <option value="{{ term.id() }}">{{ term.label() }}</option>#}
+{#                  {% endfor %}#}
+{#                </select>#}
+{#                <select name="category" class="form-select border-0 py-3">#}
+{#  <option value="">Business Category</option>#}
+{#  {% for term in business_categories %}#}
+{#    <option value="{{ term.id }}">{{ term.name.value }}</option>#}
+{#  {% endfor %}#}
+{#</select>#}
+
+{#              </div>#}
+
+{#              <div class="col-md-4">#}
+{#                <select name="location" class="form-select border-0 py-3">#}
+{#                  <option value="">Location</option>#}
+{#                  {% for term in field_business_location %}#}
+{#                    <option value="{{ term.id() }}">{{ term.label() }}</option>#}
+{#                  {% endfor %}#}
+{#                </select>#}
+
+{#              </div>#}
+{#            </div>#}
+{#          </div>#}
+{#          <div class="col-md-2">#}
+{#            <button type="submit" class="btn btn-dark border-0 w-100 py-3">Search</button>#}
+{#          </div>#}
+{#        </div>#}
+{#      </form>#}
+{#    </div>#}
+{#  </div>#}
+{#  <!-- Search Region End -->#}
+{#{{ content }}#}
+{#{% endif %}#}

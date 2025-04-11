@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Theme override to display a menu.
+ *
+ * Available variables:
+ * - menu_name: The machine name of the menu.
+ * - items: A nested list of menu items. Each menu item contains:
+ *   - attributes: HTML attributes for the menu item.
+ *   - below: The menu item child items.
+ *   - title: The menu link title.
+ *   - url: The menu link URL, instance of \Drupal\Core\Url
+ *   - localized_options: Menu link localized options.
+ *   - is_expanded: TRUE if the link has visible children within the current
+ *     menu tree.
+ *   - is_collapsed: TRUE if the link has children within the current menu tree
+ *     that are not currently visible.
+ *   - in_active_trail: TRUE if the link is in the active trail.
+ */
+#}
+{% import _self as menus %}
+
+{# Set the maximum level to 4 for visibility up to 4 levels deep #}
+{{ menus.menu_links(items, attributes, 0, 4) }}
+
+{% macro menu_links(items, attributes, menu_level, max_depth) %}
+  {% import _self as menus %}
+  {% if items %}
+    {% if menu_level == 0 %}
+      <div{{ attributes.addClass('menu navbar-nav ms-auto') }}>
+    {% else %}
+      <div class="dropdown-menu rounded-0 m-0">
+    {% endif %}
+
+    {% for item in items %}
+      {% if menu_level == 0 %}
+        {% if item.below %}
+          <div class="nav-item dropdown">
+            <a href="{{ item.url }}" class="nav-link dropdown-toggle{% if item.in_active_trail %} active{% endif %}" data-bs-toggle="dropdown">
+              {{ item.title }}
+            </a>
+            {% if menu_level < max_depth %}
+              {{ menus.menu_links(item.below, attributes, menu_level + 1, max_depth) }}
+            {% endif %}
+          </div>
+        {% else %}
+          <a href="{{ item.url }}" class="nav-item nav-link{% if item.in_active_trail %} active{% endif %}">
+            {{ item.title }}
+          </a>
+        {% endif %}
+      {% else %}
+        {% if item.below and menu_level < max_depth %}
+          <div class="dropdown-item dropdown-submenu">
+            <a href="{{ item.url }}" class="dropdown-item{% if item.in_active_trail %} active{% endif %}" data-bs-toggle="dropdown">
+              {{ item.title }}
+            </a>
+            {{ menus.menu_links(item.below, attributes, menu_level + 1, max_depth) }}
+          </div>
+        {% else %}
+          <a href="{{ item.url }}" class="dropdown-item{% if item.in_active_trail %} active{% endif %}">
+            {{ item.title }}
+          </a>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  {% endif %}
+{% endmacro %}

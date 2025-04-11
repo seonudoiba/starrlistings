@@ -1,0 +1,38 @@
+name: starrlist
+type: theme
+'base theme': stable9
+version: 1.0.0
+libraries:
+  - starrlist/base
+  - starrlist/messages
+  - core/normalize
+libraries-extend:
+  user/drupal.user:
+    - starrlist/user
+  core/drupal.dropbutton:
+    - starrlist/dropbutton
+  core/drupal.dialog:
+    - starrlist/dialog
+  file/drupal.file:
+    - starrlist/file
+  core/drupal.progress:
+    - starrlist/progress
+description: ''
+core_version_requirement: ^11
+generator: 'starterkit_theme:11.1.6'
+regions:
+  header: Header
+  primary_menu: Primary Menu
+  secondary_menu: Secondary Menu
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  help: Help
+  search: Search
+  hero: Hero
+  home_content: Home Content
+  content: Content
+  page_top: Page top
+  page_bottom: Page bottom
+  sidebar_first: First sidebar
+  sidebar_second: Second sidebar
+  footer: Footer

@@ -1,0 +1,10 @@
+name: 'Unversioned assets test'
+type: module
+description: 'Tests that aggregates change when unversioned assets change'
+package: Testing
+# version: VERSION
+
+# Information added by Drupal.org packaging script on 2025-04-02
+version: '11.1.6'
+project: 'drupal'
+datestamp: 1743628365
