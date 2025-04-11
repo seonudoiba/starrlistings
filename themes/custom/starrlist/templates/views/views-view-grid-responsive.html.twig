@@ -44,11 +44,8 @@
 <div{{ attributes.addClass(classes).setAttribute('style', responsive_grid_styles|join()) }}>
   {% for item in items %}
     <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-      <a class="cat-item d-block bg-light text-center rounded p-3" href="">
-      <div class="rounded p-4">
+
         {{- item.content -}}
-      </div>
-      </a>
     </div>
   {% endfor %}
 </div>

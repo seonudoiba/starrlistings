@@ -29,11 +29,14 @@
  * @see template_preprocess_views_view_fields()
  */
 #}
+<a class="cat-item d-block bg-light text-center rounded p-3" href="">
+  <div class="rounded p-4">
 {% for field in fields -%}
   {{ field.separator }}
-  {%- if field.wrapper_element -%}
-    <{{ field.wrapper_element }}{{ field.wrapper_attributes }}>
-  {%- endif %}
+{#  {%- if field.wrapper_element -%}#}
+{#    <{{ field.wrapper_element }}#}
+{#    {{ field.wrapper_attributes }}>#}
+{#  {%- endif %}#}
   {%- if field.label -%}
     {%- if field.label_element -%}
       <{{ field.label_element }}{{ field.label_attributes }}>{{ field.label }}{{ field.label_suffix }}</{{ field.label_element }}>
@@ -42,11 +45,16 @@
     {%- endif %}
   {%- endif %}
   {%- if field.element_type -%}
-    <{{ field.element_type }}{{ field.element_attributes }}>{{ field.content }}</{{ field.element_type }}>
+{#    <{{ field.element_type }}{{ field.element_attributes }}>#}
+    {{ field.content }}
+{#    </{{ field.element_type }}>#}
   {%- else -%}
     {{ field.content }}
   {%- endif %}
-  {%- if field.wrapper_element -%}
-    </{{ field.wrapper_element }}>
-  {%- endif %}
+{#  {%- if field.wrapper_element -%}#}
+{#    </{{ field.wrapper_element }}>#}
+{#  {%- endif %}#}
 {%- endfor %}
+
+</a>
+</div>
