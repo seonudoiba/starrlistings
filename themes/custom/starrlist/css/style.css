@@ -33,6 +33,12 @@ body{
 }
 
 
+/*views grid*/
+
+/*.views-view-responsive-grid__item-inner{*/
+/*  */
+/*}*/
+
 /*** Button ***/
 .btn {
     transition: .5s;
