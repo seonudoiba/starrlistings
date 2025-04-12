@@ -24,7 +24,8 @@
       default_row_class ? 'views-row',
     ]
   %}
-  <div{{ row.attributes.addClass(row_classes) }}>
+{#<div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">#}
+<div{{ row.attributes.addClass(row_classes) }}>
     {{- row.content -}}
   </div>
 {% endfor %}
