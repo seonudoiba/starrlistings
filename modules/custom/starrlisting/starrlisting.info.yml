@@ -1,0 +1,8 @@
+name: 'Starrlist Custom Blocks'
+type: module
+description: 'Provides custom blocks for starrlisting theme.'
+core_version_requirement: ^11
+package: Starrlisting
+version: 1.0.0
+dependencies:
+  - drupal:block
