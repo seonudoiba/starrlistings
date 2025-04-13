@@ -30,6 +30,8 @@ regions:
   search: Search
   hero: Hero
   home_content: Home Content
+  about: About
+  business_listing: Business Listing
   content: Content
   page_top: Page top
   page_bottom: Page bottom
