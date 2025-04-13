@@ -39,57 +39,64 @@
     dom_id ? 'js-view-dom-id-' ~ dom_id,
   ]
 %}
-<div{{ attributes.addClass(classes) }}>
-  {{ title_prefix }}
-  {% if title %}
-    {{ title }}
-  {% endif %}
-  {{ title_suffix }}
-  {% if header %}
-    <div class="view-header">
-      {{ header }}
-    </div>
-  {% endif %}
-  {% if exposed %}
-    <div class="view-filters">
-      {{ exposed }}
-    </div>
-  {% endif %}
-  {% if attachment_before %}
-    <div class="attachment attachment-before">
-      {{ attachment_before }}
-    </div>
-  {% endif %}
+<div{{attributes.addClass(classes)}}>
+	{{ title_prefix }}
+	{% if title %}
+		{{ title }}
+	{% endif %}
+	{{ title_suffix }}
+	{% if header %}
+		<div class="view-header">
+			{{ header }}
+		</div>
+	{% endif %}
+	{% if exposed %}
+		<div class="view-filters">
+			{{ exposed }}
+		</div>
+	{% endif %}
+	{% if attachment_before %}
+		<div class="attachment attachment-before">
+			{{ attachment_before }}
+		</div>
+	{% endif %}
 
-  {% if rows %}
-    <div class="view-content row g-4">
-      {{ rows }}
-    </div>
-  {% elseif empty %}
-    <div class="view-empty">
-      {{ empty }}
-    </div>
-  {% endif %}
+	{% if rows %}
+		<div class="tab-content">
+			<div id="tab-1" class="tab-pane fade show p-0 active">
+				<div class="row g-4">
+					{{ rows }}
+					<div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
+						<a class="btn btn-primary py-3 px-5" href="/business">Browse More Businesses</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	{% elseif empty %}
+		<div class="view-empty">
+			{{ empty }}
+		</div>
+	{% endif %}
 
-  {% if pager %}
-    {{ pager }}
-  {% endif %}
-  {% if attachment_after %}
-    <div class="attachment attachment-after">
-      {{ attachment_after }}
-    </div>
-  {% endif %}
-  {% if more %}
-    {{ more }}
-  {% endif %}
-  {% if footer %}
-    <div class="view-footer">
-      {{ footer }}
-    </div>
-  {% endif %}
-  {% if feed_icons %}
-    <div class="feed-icons">
-      {{ feed_icons }}
-    </div>
-  {% endif %}
+	{% if pager %}
+		{{ pager }}
+	{% endif %}
+	{% if attachment_after %}
+		<div class="attachment attachment-after">
+			{{ attachment_after }}
+		</div>
+	{% endif %}
+	{% if more %}
+		{{ more }}
+	{% endif %}
+	{% if footer %}
+		<div class="view-footer">
+			{{ footer }}
+		</div>
+	{% endif %}
+	{% if feed_icons %}
+		<div class="feed-icons">
+			{{ feed_icons }}
+		</div>
+	{% endif %}
 </div>

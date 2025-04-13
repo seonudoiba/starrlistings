@@ -64,6 +64,11 @@ base:
   # Add any JavaScript libraries here if needed
   dependencies:
     - core/jquery
+business-listings:
+  version: VERSION
+  css:
+    theme:
+      css/business-listings.css: {}
 dialog:
   version: VERSION
   css:
