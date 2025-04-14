@@ -1,5 +1,0 @@
-function starrlist_preprocess_views_view_field(&$variables) {
-  if ( $variables['view']->id() === 'business_listings') {
-    $variables['#attached']['library'][] = 'starrlist/business-listings';
-  }
-}

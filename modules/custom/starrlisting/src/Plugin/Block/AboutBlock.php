@@ -8,7 +8,7 @@ use Drupal\Core\Block\BlockBase;
  * @Block(
  *   id = "about_block",
  *   admin_label = @Translation("About Block"),
- *   category = @Translation("Custom")
+ *   category = @Translation("Starrlisting custom")
  * )
  */
 class AboutBlock extends BlockBase {

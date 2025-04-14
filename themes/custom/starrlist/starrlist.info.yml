@@ -32,6 +32,7 @@ regions:
   home_content: Home Content
   about: About
   business_listing: Business Listing
+  cta: Call to Action
   content: Content
   page_top: Page top
   page_bottom: Page bottom

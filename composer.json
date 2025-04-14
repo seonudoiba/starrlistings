@@ -27,6 +27,7 @@
         "drupal/geolocation": "^3.14",
         "drupal/pathauto": "^1.13",
         "drupal/token": "^1.15",
+        "drupal/twig_tweak": "3.4",
         "drupal/twigsuggest": "^2.0@RC"
     },
     "conflict": {
