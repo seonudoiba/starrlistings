@@ -1,90 +1,91 @@
 {#
 /**
- * @file
- * Theme override to display all the fields in a row.
- *
- * Available variables:
- * - view: The view in use.
- * - fields: A list of fields, each one contains:
- *   - content: The output of the field.
- *   - raw: The raw data for the field, if it exists. This is NOT output safe.
- *   - class: The safe class ID to use.
- *   - handler: The Views field handler controlling this field.
- *   - inline: Whether or not the field should be inline.
- *   - wrapper_element: An HTML element for a wrapper.
- *   - wrapper_attributes: List of attributes for wrapper element.
- *   - separator: An optional separator that may appear before a field.
- *   - label: The field's label text.
- *   - label_element: An HTML element for a label wrapper.
- *   - label_attributes: List of attributes for label wrapper.
- *   - label_suffix: Colon after the label.
- *   - element_type: An HTML element for the field content.
- *   - element_attributes: List of attributes for HTML element for field content.
- *   - has_label_colon: A boolean indicating whether to display a colon after
- *     the label.
- *   - element_type: An HTML element for the field content.
- *   - element_attributes: List of attributes for HTML element for field content.
- * - row: The raw result from the query, with all data it fetched.
- *
- * @see template_preprocess_views_view_fields()
- */
+* @file
+* Theme override to display all the fields in a row.
+*
+* Available variables:
+* - view: The view in use.
+* - fields: A list of fields, each one contains:
+* - content: The output of the field.
+* - raw: The raw data for the field, if it exists. This is NOT output safe.
+* - class: The safe class ID to use.
+* - handler: The Views field handler controlling this field.
+* - inline: Whether or not the field should be inline.
+* - wrapper_element: An HTML element for a wrapper.
+* - wrapper_attributes: List of attributes for wrapper element.
+* - separator: An optional separator that may appear before a field.
+* - label: The field's label text.
+* - label_element: An HTML element for a label wrapper.
+* - label_attributes: List of attributes for label wrapper.
+* - label_suffix: Colon after the label.
+* - element_type: An HTML element for the field content.
+* - element_attributes: List of attributes for HTML element for field content.
+* - has_label_colon: A boolean indicating whether to display a colon after
+* the label.
+* - element_type: An HTML element for the field content.
+* - element_attributes: List of attributes for HTML element for field content.
+* - row: The raw result from the query, with all data it fetched.
+*
+* @see template_preprocess_views_view_fields()
+*/
 #}
-{# <pre>{{ dump(fields) }}</pre> #}
+{# <pre>{{ dump(fields) }}</pre>  #}
 <!-- 	</div> -->
 <div class="col-lg-4 col-md-6 wow fadeInUp bro" data-wow-delay="0.1s">
-	<div
-		class="property-item rounded overflow-hidden">
+	<div class="property-item rounded overflow-hidden">
 		{# Title field #}
 		{{ fields.title.separator }}
 		{% if fields.title.label %}
-			{% if fields.title.label_element %}
-				<{{fields.title.label_element}}{{fields.title.label_attributes}}>
-					{{ fields.title.label }}{{ fields.title.label_suffix }}
-				</{{fields.title.label_element}}>
+		{% if fields.title.label_element %}
+		<{{fields.title.label_element}}{{fields.title.label_attributes}}>
+			{{ fields.title.label }}{{ fields.title.label_suffix }}
+			</{{fields.title.label_element}}>
 			{% else %}
-				{{ fields.title.label }}{{ fields.title.label_suffix }}
+			{{ fields.title.label }}{{ fields.title.label_suffix }}
 			{% endif %}
-		{% endif %}
-		{# Phone field #}
-		{{ fields.field_phone.content }}
+			{% endif %}
+			{# Phone field #}
+			{{ fields.field_phone.content }}
 
-		{# Hourly Rate field #}
-		{{ fields.field_hourly_rate.content }}
-
-		
-
+			{# Hourly Rate field #}
+			{{ fields.field_hourly_rate.content }}
 	</div>
 	<div class="property-item rounded overflow-hidden">
-        <div class="position-relative overflow-hidden">
-		{% set url = fields.field_photo.content %}
-		{# {{ {{ dump(url) }}}} #}
-<a href="#">
-		{{ fields.field_photo.content }}
-</a>
+		<div class="position-relative overflow-hidden">
+			{% set url = fields.field_photo.content %}
+			{# {{ {{ dump(url) }}}} #}
+			<a href="#">
+				{{ fields.field_photo.content }}
+			</a>
 			{# <a href=""><img class="img-fluid" src="http://localhost{{ fields.field_photo.content }}" alt=""></a> #}
-            <div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
-			{# {% if fields.field_verified.content %} #}
-                Verified
-			{# {% else %} #}
+			<div class="bg-primary rounded text-white position-absolute start-0 top-0 m-4 py-1 px-3">
+				{# {% if fields.field_verified.content %} #}
+				Verified
+				{# {% else %} #}
 				{# Unverified #}
 			</div>
-            <div
-                                            class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
-                                            {{ fields.field_business_service.content }}</div>
-                                    </div>
-        <div class="p-4 pb-0">
-                                        <h6 class="text-primary mb-3">Hourly rate: ${{ fields.field_hourly_rate.content }}
-</h6>
-                                        <a class="d-block h5 mb-2" href="">	{{ fields.title.content }}</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>123 Street, New York,
-                                            USA</p>
-        </div>
-    	<div class="d-flex border-top">
-                                        <small class="flex-fill text-center border-end py-2"><i
-                                                class="fa fa-ruler-combined text-primary me-2"></i>Employee Size: {{ fields.field_employee_range.content }}</small>
-                                        <small class="flex-fill text-center border-end py-2"><i
-                                                class="fa fa-ruler-combined text-primary me-2"></i>Owner: {{ fields.field_business_owner.content }}</small>
-                                    
-        </div>
-    </div>
+			<div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-1">
+				{{ fields.field_category.content }}</div>
+		</div>
+		<div class="p-4 pb-0">
+			<h6 class="text-primary mb-3">Hourly rate: ${{ fields.field_hourly_rate.content }}
+			</h6>
+			<a class="d-block h5 mb-2" href=""> {{ fields.title.content }}</a>
+			<p><i class="fa fa-map-marker-alt text-primary me-0"></i>{{fields.field_address_address_line1.content }}, 
+			{{ fields.field_address_locality.content }}, {{fields.field_address_country_code.content}}
+				USA</p>
+
+				  
+
+		</div>
+		<div class="d-flex border-top">
+			<small class="flex-fill text-center border-end py-2"><i
+					class="fa fa-ruler-combined text-primary me-0"></i>Employee Size: {{
+				fields.field_employee_range.content }}</small>
+			<small class="flex-fill text-center border-end py-2"><i
+					class="fa fa-ruler-combined text-primary me-0"></i>Owner: {{ fields.field_business_owner.content
+				}}</small>
+
+		</div>
+	</div>
 </div>
